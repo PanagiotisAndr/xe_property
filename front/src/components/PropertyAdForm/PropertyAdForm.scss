@@ -1,0 +1,19 @@
+.property-ad-form {
+    max-width: 600px;
+    border: 1px solid;
+
+    .form-control,
+    .form-select {
+        border-color: #000;
+    }
+
+    #addresses {
+        left: 0;
+    }
+
+    button {
+        border: 1px solid #000;
+        border-radius: 4px;
+        padding: 5px 30px;
+    }
+}

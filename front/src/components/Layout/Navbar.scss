@@ -1,0 +1,35 @@
+.navbar {
+    .navbar-brand {
+        img {
+            width: 100px;
+        }
+    }
+
+    .menu {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background-color: white;
+        border: 1px solid #d2d2d2;
+
+        .close-nav {
+            position: absolute;
+            left: 0;
+            cursor: pointer;
+            top: 0;
+            padding: 6px;
+            line-height: 10px;
+            font-weight: 600;
+        }
+
+        .navbar-collapse {
+            padding: 20px;
+        }
+
+        &.open {
+            display: block;
+        }
+    }
+
+}

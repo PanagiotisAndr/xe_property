@@ -1,12 +1,11 @@
 // src/pages/PropertyAdPage.js
 
 import React from 'react';
-import PropertyAdForm from '../components/PropertyAdForm';
+import PropertyAdForm from '../components/PropertyAdForm/PropertyAdForm';
 
 const PropertyAdPage = () => {
     return (
         <div>
-            <h1>Create Property Ad</h1>
             <PropertyAdForm />
         </div>
     );
