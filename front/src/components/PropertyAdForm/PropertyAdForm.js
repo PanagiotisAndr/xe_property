@@ -101,7 +101,6 @@ const PropertyAdForm = () => {
             });
     };
 
-
     return (
         <div className="mx-auto property-ad-form">
             <div className="container">
@@ -109,12 +108,10 @@ const PropertyAdForm = () => {
                     <div className="col">
                         <h1 className="my-3">New property classified</h1>
                         <form onSubmit={handleSubmit}>
-
                             <div className="mb-3">
                                 <label htmlFor="areaInput" className="form-label">Title</label>
                                 <input className="form-control" type="text" value={title} onChange={(e) => setTitle(e.target.value)} required maxLength="155" />
                             </div>
-
                             <div className="mb-3">
                                 <label className="form-label">Type</label>
                                 <select className="form-select" value={propertyType} onChange={(e) => setPropertyType(e.target.value)} required>
@@ -125,7 +122,6 @@ const PropertyAdForm = () => {
                                     <option value="donation">Donation</option>
                                 </select>
                             </div>
-
                             <div className="mb-3">
                                 <label htmlFor="areaInput" className="form-label">Area</label>
                                 <input
@@ -145,37 +141,28 @@ const PropertyAdForm = () => {
                                     ))}
                                 </datalist>
                             </div>
-
-
                             <div className="mb-3">
                                 <label className="form-label">Levels</label>
                                 <input className="form-control" type="number" value={levels} onChange={(e) => setLevels(e.target.value)} required />
                             </div>
-
                             <div className="mb-3">
                                 <label className="form-label">Bathrooms</label>
                                 <input className="form-control" type="number" value={bathrooms} onChange={(e) => setBathrooms(e.target.value)} required />
                             </div>
-
-
                             <div className="mb-3">
                                 <label className="form-label">Price</label>
                                 <input className="form-control" type="number" value={price} onChange={(e) => setPrice(e.target.value)} required />
                             </div>
-
                             <div className="mb-3">
                                 <label className="form-label">Description:</label>
                                 <textarea className="form-control" value={description} onChange={(e) => setDescription(e.target.value)} />
                             </div>
-
                             <button className="mb-3" type="submit">Submit</button>
                         </form>
-
                     </div>
                 </div>
             </div>
         </div>
-
     );
 };
 
