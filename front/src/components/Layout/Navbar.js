@@ -29,25 +29,22 @@ const Navbar = () => {
                         <p className="close-nav" onClick={toggleMenu}>x</p>
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <a className="nav-link" href="/create-ad">Προσθήκη Αγγελίας</a>
+                                <a className="nav-link text-uppercase" href="/create-ad">Add Listing</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/properties-list">Εμφάνιση Αγγελιών</a>
+                                <a className="nav-link text-uppercase" href="/properties-list">View Listings</a>
                             </li>
                         </ul>
                     </div>
                 </div>
 
-
-
-
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/create-ad">Προσθήκη Αγγελίας</Link>
+                        <li className="nav-item m-2">
+                            <Link className="nav-link text-uppercase" to="/create-ad">Add Listing</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/properties-list">Εμφάνιση Αγγελιών</Link>
+                        <li className="nav-item m-2">
+                            <Link className="nav-link text-uppercase" to="/properties-list">View Listings</Link>
                         </li>
                     </ul>
                 </div>

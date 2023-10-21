@@ -1,6 +1,8 @@
 .property-ad-form {
     max-width: 600px;
-    border: 1px solid;
+    box-shadow: 1px 1px 24px -13px;
+    margin: 40px !important;
+    padding: 15px;
 
     .form-control,
     .form-select {

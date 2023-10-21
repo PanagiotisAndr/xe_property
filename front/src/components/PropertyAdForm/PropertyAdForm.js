@@ -3,33 +3,31 @@ import { useDispatch } from 'react-redux';
 import { setAddresses } from '../../redux/slices/addressSlice';
 import axios from 'axios';
 import './PropertyAdForm.scss';
-import get from 'lodash'
+import get from 'lodash/get';
 import { showModal } from '../../redux/slices/modalActions';
 
 
 const PropertyAdForm = () => {
 
+    // Define states for form fields and utilities
     const [title, setTitle] = useState('');
     const [input, setInput] = useState('');
     const [propertyType, setPropertyType] = useState('');
-    const [selectedItem, setSelectedItem] = useState('');
+    const [selectedItem, setSelectedItem] = useState({});
     const [addresses, setLocalAddresses] = useState([]);
     const [price, setPrice] = useState('');
     const [levels, setLevels] = useState('');
     const [bathrooms, setBathrooms] = useState('');
     const [description, setDescription] = useState('');
-    const dispatch = useDispatch();
-    const [cache, setCache] = useState({});
-
-
-
+    const dispatch = useDispatch();  // for dispatching actions to redux
+    const [cache, setCache] = useState({});  // Cache for storing addresses
 
     const handleInputChange = async (e) => {
         const inputValue = e.target.value;
         setInput(inputValue);
 
+        // Make an API call if the input value is at least 3 characters long
         if (inputValue.length >= 3) {
-
             // Check if the result exists in the cache            
             if (cache[inputValue]) {
                 setLocalAddresses(cache[inputValue]);
@@ -40,18 +38,10 @@ const PropertyAdForm = () => {
                     if (response.data && Array.isArray(response.data)) {
                         setLocalAddresses(response.data);
                         dispatch(setAddresses(response.data));
-                        console.log(response.data);
-
-
-                        console.log("sssssss");
-
-                        console.log(response.data.find(item => item.mainText + ' ' + item.secondaryText === e.target.value));
-
-                        console.log("sssssss");
-
-                        setSelectedItem(response.data.find(item => item.mainText + ' ' + item.secondaryText === e.target.value));
-
-                        // Saving the result in the cache
+                        // Check if the input value matches any address in the response
+                        let selectedItem = response.data.find(item => item.mainText + ' ' + item.secondaryText === e.target.value)
+                        selectedItem !== undefined ? setSelectedItem(selectedItem) : setSelectedItem({})
+                        // Cache the result for future reference
                         setCache(prevCache => ({
                             ...prevCache,
                             [inputValue]: response.data
@@ -64,10 +54,11 @@ const PropertyAdForm = () => {
                 }
             }
         } else {
+            // Clear addresses if input value is less than 3 characters
             setLocalAddresses([]);
         }
     };
-
+    // Clear input field if the provided address doesn't match any of the suggested addresses
     const handleInputBlur = () => {
         const matchingAddress = addresses.find(address => address.mainText + ' ' + address.secondaryText === input);
         if (!matchingAddress) {
@@ -75,7 +66,7 @@ const PropertyAdForm = () => {
         }
     };
 
-
+    // Handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -89,21 +80,30 @@ const PropertyAdForm = () => {
             bathrooms: bathrooms,
             description: description
         };
+        // Post the property data to the server
         axios.post(`${process.env.REACT_APP_API_URL}/property/save-property`, propertyData)
             .then(response => {
-                console.log(response.data);
                 dispatch(showModal(<div>Το ακίνητο αποθηκεύτηκε επιτυχώς!</div>));
+
+                setTitle('');
+                setInput('');
+                setPropertyType('');
+                setSelectedItem({});
+                setLocalAddresses([]);
+                setPrice('');
+                setLevels('');
+                setBathrooms('');
+                setDescription('');
             })
             .catch(error => {
+                console.log(error);
                 dispatch(showModal("Error saving property to backend:", error));
-
-                console.error("Error saving property to backend:", error);
             });
     };
 
 
     return (
-        <div className="mt-2 mx-auto property-ad-form">
+        <div className="mx-auto property-ad-form">
             <div className="container">
                 <div className="row">
                     <div className="col">
@@ -112,7 +112,7 @@ const PropertyAdForm = () => {
 
                             <div className="mb-3">
                                 <label htmlFor="areaInput" className="form-label">Title</label>
-                                <input className="form-control" type="text" value={title} onChange={(e) => setTitle(e.target.value)} required />
+                                <input className="form-control" type="text" value={title} onChange={(e) => setTitle(e.target.value)} required maxLength="155" />
                             </div>
 
                             <div className="mb-3">
@@ -165,11 +165,8 @@ const PropertyAdForm = () => {
 
                             <div className="mb-3">
                                 <label className="form-label">Description:</label>
-                                <textarea className="form-control" value={description} onChange={(e) => setDescription(e.target.value)} required />
+                                <textarea className="form-control" value={description} onChange={(e) => setDescription(e.target.value)} />
                             </div>
-
-
-
 
                             <button className="mb-3" type="submit">Submit</button>
                         </form>
