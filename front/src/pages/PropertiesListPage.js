@@ -18,7 +18,6 @@ const PropertyListPage = () => {
             });
     }, []);
 
-
     return (
         <div className="property-listPage mt-3">
             <h1 className="my-3 text-center">List of Properties</h1>
@@ -28,12 +27,14 @@ const PropertyListPage = () => {
                         properties.map((property, index) => (
                             <div className="col-md-6 mb-3" key={index}>
                                 <div className="text-center p-3 h-100 border">
+
                                     <h3>{property.title}</h3>
                                     <p className="m-0">{property.description}</p>
                                     <p className="m-0"><b>Area: </b>{property.area}</p>
                                     <p className="m-0"><b>Levels: </b>{property.levels}</p>
                                     <p className="m-0"><b>Bathrooms: </b>{property.bathrooms}</p>
                                     <p className="m-0"><b>Price: </b>{property.price}€</p>
+
                                 </div>
                             </div>
                         ))

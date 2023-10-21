@@ -14,16 +14,12 @@ const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-light border">
             <div className="container-fluid">
-
                 <Link className="navbar-brand" to="/">
                     <img src={process.env.PUBLIC_URL + '/logo-nav.png'} alt="Navbar Logo" />
                 </Link>
-
                 <button onClick={toggleMenu} className="navbar-toggler">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-
-
                 <div className={`menu ${isMenuOpen ? 'open' : ''}`}>
                     <div className="navbar-collapse">
                         <p className="close-nav" onClick={toggleMenu}>x</p>
@@ -37,7 +33,6 @@ const Navbar = () => {
                         </ul>
                     </div>
                 </div>
-
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item m-2">
