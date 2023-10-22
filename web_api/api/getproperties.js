@@ -1,5 +1,5 @@
 const express = require('express');
-const db = require('../models/db');
+const db = require('../repository/db');
 const app = express();
 
 // Define a GET endpoint for the path '/get-properties'

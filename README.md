@@ -6,6 +6,8 @@
 
 To populate the 'xe_properties' database, run the following query:
 
+use xe_properties;
+
 CREATE TABLE `properties` (
 `title` varchar(155) NOT NULL,
 `placeId` text NOT NULL,

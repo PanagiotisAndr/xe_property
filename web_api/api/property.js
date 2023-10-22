@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../models/db');
+const db = require('../repository/db');
 
 // Define a POST endpoint for the path '/save-property'
 router.post('/save-property', (req, res) => {

@@ -1,8 +1,8 @@
 const express = require('express');
 const cors = require('cors');
-const addressRoutes = require('./routes/addresses');
-const saveProperty = require('./routes/property');
-const getproperties = require('./routes/getproperties');
+const addressApi = require('./api/addresses');
+const saveProperty = require('./api/property');
+const getproperties = require('./api/getproperties');
 
 
 const app = express();
@@ -11,7 +11,7 @@ const PORT = 5001;
 app.use(cors());
 app.use(express.json());
 
-app.use('/addresses', addressRoutes);
+app.use('/addresses', addressApi);
 app.use('/property', saveProperty);
 app.use('/property', getproperties);
 
