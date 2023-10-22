@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import { Link } from 'react-router-dom';
 import '../Layout/Navbar.scss';
 
@@ -9,7 +8,6 @@ const Navbar = () => {
     const toggleMenu = () => {
         setIsMenuOpen(prevState => !prevState);
     };
-
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light border">

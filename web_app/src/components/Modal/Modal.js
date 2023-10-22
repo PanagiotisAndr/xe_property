@@ -6,11 +6,9 @@ import { hideModal } from '../../redux/slices/modalActions';
 const CentralModal = () => {
     const dispatch = useDispatch();
     const modalState = useSelector(state => state.modal);
-
     if (!modalState.show) {
         return null;
     }
-
     return (
         <div className="modal show d-block" tabIndex="-1">
             <div className="modal-dialog">

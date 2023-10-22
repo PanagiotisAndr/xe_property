@@ -25,9 +25,11 @@ const instanceAxios = axios.create({
 // Response Interceptor
 instanceAxios.interceptors.response.use(
     response => {
+
         return response;
     },
     error => {
+
         return Promise.reject(error);
     }
 );

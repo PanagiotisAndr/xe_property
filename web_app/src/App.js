@@ -5,7 +5,6 @@ import PropertyAdPage from './pages/PropertyAdPage';
 import PropertiesList from './pages/PropertiesListPage';
 import Navbar from './components/Layout/Navbar';
 import CentralModal from './components/Modal/Modal';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {

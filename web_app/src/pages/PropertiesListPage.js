@@ -4,7 +4,6 @@ import instanceAxios from '../api/index';
 
 const PropertyListPage = () => {
     const [properties, setProperties] = useState([]);
-
     // Using the useEffect hook to execute code after the component mounts
     useEffect(() => {
         // Sending a GET request to fetch properties from the backend
@@ -18,7 +17,6 @@ const PropertyListPage = () => {
                 console.error("Error fetching properties from backend:", error);
             });
     }, []);
-
     return (
         <div className="property-listPage mt-3">
             <h1 className="my-3 text-center">List of Properties</h1>

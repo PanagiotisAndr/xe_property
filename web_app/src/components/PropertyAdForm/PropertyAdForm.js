@@ -65,11 +65,9 @@ const PropertyAdForm = () => {
             setInput('');
         }
     };
-
     // Handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
-
         const propertyData = {
             title: title,
             placeId: get(selectedItem, 'placeId', ''),
@@ -80,6 +78,7 @@ const PropertyAdForm = () => {
             bathrooms: bathrooms,
             description: description
         };
+
         // Post the property data to the server
         instanceAxios.post('/property/save-property', propertyData)
             .then(response => {
