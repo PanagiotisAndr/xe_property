@@ -1,26 +1,3 @@
-# Front instructions
-
-### `npm install`
-
-## Change in .env.development file
-
-### `REACT_APP_API_URL=` with your backend port
-
-## Available Scripts
-
-In the project directory (/front), you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-
-######################################################################################
-######################################################################################
-
 ### Backend instructions
 
 ### `npm install`
@@ -48,3 +25,26 @@ COMMIT;
 In the project directory,(backend) you can run:
 
 ### `node server.js`
+
+######################################################################################
+######################################################################################
+
+# Front instructions
+
+### `npm install`
+
+## Change in .env.development file
+
+### `REACT_APP_API_URL=` with your backend port
+
+## Available Scripts
+
+In the project directory (/front), you can run:
+
+### `npm start`
+
+Runs the app in the development mode.\
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
