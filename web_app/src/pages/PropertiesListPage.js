@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import instanceAxios from '../api/index';
+
 
 const PropertyListPage = () => {
     const [properties, setProperties] = useState([]);
@@ -7,7 +8,7 @@ const PropertyListPage = () => {
     // Using the useEffect hook to execute code after the component mounts
     useEffect(() => {
         // Sending a GET request to fetch properties from the backend
-        axios.get(`${process.env.REACT_APP_API_URL}/property/get-properties`)
+        instanceAxios.get(`${process.env.REACT_APP_API_URL}/property/get-properties`)
             .then(response => {
                 // On successful response, update the 'properties' state with the fetched data
                 setProperties(response.data);

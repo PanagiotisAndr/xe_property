@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setAddresses } from '../../redux/slices/addressSlice';
-import axios from 'axios';
+import instanceAxios from '../../../src/api/index';
 import './PropertyAdForm.scss';
 import get from 'lodash/get';
 import { showModal } from '../../redux/slices/modalActions';
@@ -34,7 +34,7 @@ const PropertyAdForm = () => {
                 dispatch(setAddresses(cache[inputValue]));
             } else {
                 try {
-                    const response = await axios.get(`${process.env.REACT_APP_API_URL}/addresses/search?input=${inputValue}`);
+                    const response = await instanceAxios.get(`/addresses/search?input=${inputValue}`);
                     if (response.data && Array.isArray(response.data)) {
                         setLocalAddresses(response.data);
                         dispatch(setAddresses(response.data));
@@ -81,7 +81,7 @@ const PropertyAdForm = () => {
             description: description
         };
         // Post the property data to the server
-        axios.post(`${process.env.REACT_APP_API_URL}/property/save-property`, propertyData)
+        instanceAxios.post('/property/save-property', propertyData)
             .then(response => {
                 dispatch(showModal(<div>Το ακίνητο αποθηκεύτηκε επιτυχώς!</div>));
 

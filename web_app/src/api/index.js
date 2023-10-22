@@ -1,7 +1,4 @@
 import axios from 'axios';
-import { showModal } from '../../redux/slices/modalActions';
-import { useDispatch } from 'react-redux';
-const dispatch = useDispatch();  // for dispatching actions to redux
 
 
 const API_ENDPOINT = process.env.REACT_APP_API_URL + "/search-address";
@@ -26,12 +23,11 @@ const instanceAxios = axios.create({
 });
 
 // Response Interceptor
-instance.interceptors.response.use(
+instanceAxios.interceptors.response.use(
     response => {
         return response;
     },
     error => {
-        dispatch(showModal("Error", error));
         return Promise.reject(error);
     }
 );
