@@ -20,11 +20,11 @@ CREATE TABLE `properties` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 COMMIT;
 
-## Make a change in /backend/models/db.js. in the `const connection=` line with your MySQL credentials (host, user, password, database)
+## Make a change in /web_api/models/db.js. in the `const connection=` line with your MySQL credentials (host, user, password, database)
 
 ## Start server
 
-In the project directory,(backend) you can run:
+In the project directory,(web_api) you can run:
 
 ### `node server.js`
 
@@ -41,7 +41,7 @@ In the project directory,(backend) you can run:
 
 ## Available Scripts
 
-In the project directory (/front), you can run:
+In the project directory (/web_app), you can run:
 
 ### `npm start`
 
